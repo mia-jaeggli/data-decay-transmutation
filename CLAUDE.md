@@ -84,18 +84,21 @@ https://github.com/mia-jaeggli/data-decay-transmutation
 - Regime: Gray-Scott, feed 0.026, kill 0.051
 - Seeding: edge, displacement: b-as-index, strength 18
 - simScale 2, stepsPerFrame 6, accumulate: true
+- Buttons: Reset only
 
 ### S01b Acid Leaf (Glitch — Bit Flip)
 - Background: `assets/images/S01b-acid-leaf-bg.JPEG`
 - Crop: `assets/images/S01b-acid-leaf-crop.jpg`
 - Operation: Signal noise, scanline pattern, bit-flip count 2900
 - Accumulate: yes, speed: 300fps
+- Buttons: Reset only
 
 ### S02b Moonshot (Glitch — Block Displace)
 - Background: `assets/images/S02b-moonshot-bg.jpg`
 - Crop: `assets/images/S02b-moonshot-crop.JPEG`
 - Operation: JPEG corrupt, block 89px, max shift 60px, horizontal only
 - Accumulate: no, speed: 10fps
+- Buttons: Pause only
 
 ### S03 Pulsatilla (Reaction-Diffusion — Spots/Coral)
 - Background: `assets/images/S03-pulsatilla-bg.jpg`
@@ -104,6 +107,7 @@ https://github.com/mia-jaeggli/data-decay-transmutation
 - Regime: Gray-Scott, feed 0.037, kill 0.065
 - Seeding: brightness, displacement: b-gradient-inverse, strength 21
 - simScale 2, stepsPerFrame 12, accumulate: true
+- Buttons: Reset only
 
 ## Reference Code
 The Gray-Scott simulation engine is adapted from the existing
@@ -121,4 +125,4 @@ the parameter specs above — no shared engine file.
 - One checkpoint at a time — confirm each step works before the next
 - All CSS values use custom properties from the design system above
 - No inline styles
-- File and folder names: lowercase, hyphenated (kebab-case)
+- File and folder names: lowercase, hyphenated (kebab-case)                                 

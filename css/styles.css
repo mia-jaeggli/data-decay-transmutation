@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Ubuntu+Mono&family=Ubuntu+Sans+Mono:wght@600&display=swap');
+
+/* ── Design tokens ──────────────────────────────────────── */
+:root {
+  /* Colour */
+  --near-black: #0D1820;
+  --dark-teal: #508991;
+  --light-teal: #75DDDD;
+  --near-white: #EBF2FA;
+  --gray-10: #CED7E1;
+  --acid-green: #A5BE00;
+
+  /* Fonts */
+  --font-heading: 'Ubuntu Mono', monospace;
+  --font-body: 'PT Sans', sans-serif;
+  --font-label: 'Ubuntu Sans Mono', monospace;
+
+  /* 4px grid spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+
+  /* Carousel thumbnails */
+  --thumb-size: 116px;
+  --thumb-radius: 28px;
+  --thumb-shadow: 3px 3px 0px var(--acid-green);
+  --thumb-active-saturation: 25%;
+
+  /* Layout */
+  --container-max-width: 1024px;
+}
+
+/* ── Base ────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--near-black);
+  color: var(--near-white);
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+
+h1, h2 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  margin: 0 0 var(--space-4);
+  color: var(--near-white);
+}
+
+.label {
+  font-family: var(--font-label);
+  font-weight: 600;
+}
+
+/* ── Layout ──────────────────────────────────────────────── */
+.project-page {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.project-header {
+  text-align: left;
+}
+
+/* ── Stage: bg container + centred canvas ───────────────── */
+.stage {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  aspect-ratio: 3 / 4;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stage-frame {
+  position: relative;
+  width: 92%;
+  aspect-ratio: 1 / 1;
+}
+
+.stage-canvas {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--space-1);
+}
+
+.btn--overlay {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+}
+
+/* Per-project background image hooks */
+[data-project="s05-wave"] .stage {
+  background-image: url('../assets/images/S05-wave-bg.jpg');
+}
+
+[data-project="s01b-acid-leaf"] .stage {
+  background-image: url('../assets/images/S01b-acid-leaf-bg.JPEG');
+}
+
+[data-project="s02b-moonshot"] .stage {
+  background-image: url('../assets/images/S02b-moonshot-bg.jpg');
+}
+
+[data-project="s03-pulsatilla"] .stage {
+  background-image: url('../assets/images/S03-pulsatilla-bg.jpg');
+}
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.btn {
+  font-family: var(--font-label);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: var(--space-2) var(--space-6);
+  border: 2px solid var(--dark-teal);
+  border-radius: var(--space-4);
+  background-color: transparent;
+  color: var(--near-white);
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  background-color: var(--dark-teal);
+  border-color: var(--light-teal);
+}
+
+.btn:active {
+  background-color: var(--near-black);
+  border-color: var(--acid-green);
+}
+
+/* ── Carousel ────────────────────────────────────────────── */
+.carousel {
+  width: 100%;
+}
+
+.carousel-track {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+.carousel-thumb {
+  display: block;
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  border-radius: var(--thumb-radius);
+  overflow: hidden;
+}
+
+.carousel-thumb.is-active {
+  box-shadow: var(--thumb-shadow);
+}
+
+.carousel-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-thumb.is-active img {
+  filter: saturate(var(--thumb-active-saturation));
+}
+
+/* ── Responsive: iPad Pro 12.9" down to mobile ─────────────
+   Base styles above already target the ~1024px iPad Pro
+   portrait width. This breakpoint tightens things up for
+   phone-sized viewports. */
+@media (max-width: 600px) {
+  :root {
+    --thumb-size: 72px;
+    --thumb-radius: 18px;
+  }
+
+  .project-page {
+    padding: var(--space-6) var(--space-3);
+    gap: var(--space-6);
+  }
+
+  .carousel-track {
+    gap: var(--space-2);
+  }
+
+  .btn {
+    padding: var(--space-2) var(--space-4);
+    font-size: 0.8rem;
+  }
+}

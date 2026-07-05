@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S05 Wave — Data Decay and Transmutation</title>
+
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body data-project="s05-wave">
+  <main class="project-page">
+    <header class="project-header">
+      <h1 class="project-title">Data Decay and Transmutation</h1>
+      <h2 class="project-subtitle">S05 Wave: Reaction Diffusion: Chaos</h2>
+    </header>
+
+    <section class="stage" aria-label="S05 Wave generative effect">
+      <div class="stage-frame">
+        <canvas class="stage-canvas" id="effect-canvas" role="img" aria-label="S05 Wave — live reaction-diffusion effect"></canvas>
+        <button type="button" class="btn btn--overlay" id="reset-btn">Reset</button>
+      </div>
+    </section>
+
+    <nav class="carousel" aria-label="Project navigation">
+      <ul class="carousel-track">
+        <li>
+          <a class="carousel-thumb is-active" href="../s05-wave/index.html" aria-current="page">
+            <img src="../assets/thumbs/S05-wave.jpg" alt="S05 Wave" width="116" height="116">
+          </a>
+        </li>
+        <li>
+          <a class="carousel-thumb" href="../s01b-acid-leaf/index.html">
+            <img src="../assets/thumbs/S01b-acid-leaf.jpg" alt="S01b Acid Leaf" width="116" height="116">
+          </a>
+        </li>
+        <li>
+          <a class="carousel-thumb" href="../s02b-moonshot/index.html">
+            <img src="../assets/thumbs/S02b-moonshot.jpg" alt="S02b Moonshot" width="116" height="116">
+          </a>
+        </li>
+        <li>
+          <a class="carousel-thumb" href="../s03-pulsatilla/index.html">
+            <img src="../assets/thumbs/S03-pulsatilla.jpg" alt="S03 Pulsatilla" width="116" height="116">
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </main>
+
+  <script src="../js/rd-engine.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="sketch.js"></script>
+</body>
+</html>
